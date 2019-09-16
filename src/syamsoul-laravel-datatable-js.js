@@ -61,13 +61,13 @@
 						order: opts_new['order'],
 					};
 					
-			        table_jel.dataTable($.extend(dt_opts, {}));
+			        dt = table_jel.dataTable($.extend(dt_opts, {}));
 					
 					return that;
 				},
-				// clear : function() { 
-				// 	table_jel[0].reset();
-				// }
+				reload : function() { 
+					dt.api().ajax.reload(null, false);
+				}
 			};
 		};
 	
