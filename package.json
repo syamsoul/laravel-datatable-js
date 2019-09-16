@@ -1,0 +1,22 @@
+{
+  "name": "syamsoul-laravel-datatable-js",
+  "version": "1.0.7",
+  "description": "An npm package developed mainly to be used for syamsoul/laravel-datatable-ssp package.",
+  "main": "src/syamsoul-laravel-datatable-js.js",
+  "dependencies": {
+    "jquery": ">=3.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syamsoul/laravel-datatable-js.git"
+  },
+  "author": "Syamsoul Azrien Muda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syamsoul/laravel-datatable-js/issues"
+  },
+  "homepage": "https://github.com/syamsoul/laravel-datatable-js#readme"
+}
