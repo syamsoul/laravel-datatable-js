@@ -33,14 +33,22 @@
 			            if(typeof opts == "object"){               
 							if(typeof opts['url'] != "string"){
 								$.error('URL is required');
+								return false;
 							}else opts_new['url'] = opts['url'];
 							
 							if(typeof opts['columns'] == 'undefined' || !Array.isArray(opts['columns'])){
 								$.error('Columns is required');
+								return false;
 							}else opts_new['columns'] = opts['columns'];
 							
 							if(typeof opts['order'] == 'undefined' || !Array.isArray(opts['order'])) opts_new['order'] = [];
 							else opts_new['order'] = opts['order'];
+							
+							if(typeof opts['responsive'] != 'boolean') opts_new['responsive'] = true;
+							else opts_new['responsive'] = opts['responsive'];
+							
+							if(typeof opts['exec'] != 'object') opts_new['exec'] = {};
+							else opts_new['exec'] = opts['exec'];
 			            }else{
 							$.error("There's something wrong with your SdLaraDataTable configuration");
 							return false;
@@ -59,8 +67,12 @@
 						ajax: opts_new['url'],
 						columns: opts_new['columns'],
 						order: opts_new['order'],
+						responsive: opts_new['responsive'],
+						drawCallback: function( settings ) {
+			                if(typeof opts_new['exec']['afterEveryLoad'] == "function") opts_new['exec']['afterEveryLoad'](dt);
+			            }
 					};
-					
+
 			        dt = table_jel.dataTable($.extend(dt_opts, {}));
 					
 					return that;
