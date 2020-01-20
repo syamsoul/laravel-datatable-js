@@ -36,8 +36,8 @@
 								return false;
 							}else opts_new['url'] = opts['url'];
                             
-                            if(typeof opts['data'] != "object") opts_new['data'] = {};
-                            else opts_new['data'] = opts['data'];
+                            if(typeof opts['data'] == "object" || typeof opts['data'] == "function") opts_new['data'] = opts['data'];
+                            else opts_new['data'] = {};
 							
 							if(typeof opts['columns'] == 'undefined' || !Array.isArray(opts['columns'])){
 								$.error('Columns is required');
