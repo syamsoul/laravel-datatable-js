@@ -35,6 +35,9 @@
 								$.error('URL is required');
 								return false;
 							}else opts_new['url'] = opts['url'];
+                            
+                            if(typeof opts['data'] != "object") opts_new['data'] = {};
+                            else opts_new['data'] = opts['data'];
 							
 							if(typeof opts['columns'] == 'undefined' || !Array.isArray(opts['columns'])){
 								$.error('Columns is required');
@@ -64,7 +67,10 @@
 					let dt_opts = {
 						processing: true,
 	                    serverSide: true,
-						ajax: opts_new['url'],
+                        ajax: {
+                            url: opts_new['url'],
+                            data: opts_new['data'],
+                        },
 						columns: opts_new['columns'],
 						order: opts_new['order'],
 						responsive: opts_new['responsive'],
